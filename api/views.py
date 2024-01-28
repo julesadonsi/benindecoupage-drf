@@ -1,11 +1,15 @@
-from django.shortcuts import render
-from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import AllowAny
-from .models import Department, District, Town
 from rest_framework.response import Response
-from .serializer import DepartmentSerializer, DistrictsSerializer, NeighborhoodsSerializer, TownSerializer
 from rest_framework import status
+
+from .models import Department, District, Town
+from .serializer import (
+    DepartmentSerializer,
+    DistrictsSerializer,
+    NeighborhoodsSerializer,
+    TownSerializer
+)
 
 class DepartmentView(ListAPIView):
     queryset = Department.objects.all()
